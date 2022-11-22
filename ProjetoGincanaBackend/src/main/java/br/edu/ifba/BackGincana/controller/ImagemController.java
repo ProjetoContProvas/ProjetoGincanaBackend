@@ -79,8 +79,10 @@ public class ImagemController {
 		var p = repository.findById(id);
 		if (p.isPresent()) {
 			var imagem = p.get();
-			if (imagemModel.getId_galeria() != null)
-				imagem.setId_Imagem(imagemModel.getId_Imagem());
+			if (imagemModel.getURL_Imagem() != null)
+				imagem.setURL_Imagem(imagemModel.getURL_Imagem());
+			if (imagemModel.getGaleria() !=null)
+				imagem.setGaleria(imagemModel.getGaleria());
 
 			repository.save(imagem);
 			return ResponseEntity.ok(imagem);

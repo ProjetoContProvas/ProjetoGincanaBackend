@@ -1,5 +1,8 @@
 package br.edu.ifba.BackGincana.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,9 +10,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "tb_galeria")
 public class GaleriaModel {
 
@@ -28,19 +37,12 @@ public class GaleriaModel {
 	
 	@ManyToOne()
 	@JoinColumn(name = "id_gincana")
-	private GincanaModel id_gincana;
+	private GincanaModel gincana;
+	
+	@OneToMany(mappedBy = "galeria")
+	private Set<ImagemModel> imagem = new HashSet<ImagemModel>();
 
-	public GaleriaModel() {
-		super();
-	}
-
-	public GaleriaModel(Integer id_Galeria, String nome_Galeria, String descricao_Galeria, GincanaModel id_gincana) {
-		super();
-		this.id_Galeria = id_Galeria;
-		this.nome_Galeria = nome_Galeria;
-		this.descricao_Galeria = descricao_Galeria;
-		this.id_gincana = id_gincana;
-	}
+	
 
 	public Integer getId_Galeria() {
 		return id_Galeria;
@@ -66,14 +68,13 @@ public class GaleriaModel {
 		this.descricao_Galeria = descricao_Galeria;
 	}
 
-	public GincanaModel getId_gincana() {
-		return id_gincana;
+	public GincanaModel getGincana() {
+		return gincana;
 	}
 
-	public void setId_gincana(GincanaModel id_gincana) {
-		this.id_gincana = id_gincana;
+	public void setGincana(GincanaModel gincana) {
+		this.gincana = gincana;
 	}
-	
-	
+
 	
 }

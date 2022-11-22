@@ -1,15 +1,17 @@
 package br.edu.ifba.BackGincana.model;
 
 import java.sql.Date;
+import java.util.HashSet;
+import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -33,16 +35,19 @@ public class GincanaModel {
 	@Column(name = "data_fim_Gincana", nullable = false)
 	private Date data_fim_Gincana;
 
-	@OneToOne(cascade = CascadeType.ALL)
+	@ManyToOne
 	@JoinColumn(name = "id_status")
 	private StatusModel statusModel;
+	
+	@OneToMany(mappedBy = "gincana")
+	private Set<GaleriaModel> galerias = new HashSet<GaleriaModel>();
 
 	public GincanaModel() {
 		super();
 	}
 
 	public GincanaModel(Integer id_Gincana, String nome_Gincana, String descricao_Gincana, Date data_inicio_Gincana,
-			Date data_fim_Gincana, StatusModel statusModel) {
+			Date data_fim_Gincana, StatusModel statusModel, Set<GaleriaModel> galerias) {
 		super();
 		this.id_Gincana = id_Gincana;
 		this.nome_Gincana = nome_Gincana;
@@ -50,6 +55,7 @@ public class GincanaModel {
 		this.data_inicio_Gincana = data_inicio_Gincana;
 		this.data_fim_Gincana = data_fim_Gincana;
 		this.statusModel = statusModel;
+		this.galerias = galerias;
 	}
 
 	public Integer getId_Gincana() {
@@ -92,12 +98,21 @@ public class GincanaModel {
 		this.data_fim_Gincana = data_fim_Gincana;
 	}
 
-	public StatusModel getId_Status() {
+	public StatusModel getStatusModel() {
 		return statusModel;
 	}
 
-	public void setId_Status(StatusModel statusModel) {
+	public void setStatusModel(StatusModel statusModel) {
 		this.statusModel = statusModel;
 	}
 
+	public Set<GaleriaModel> getGalerias() {
+		return galerias;
+	}
+
+	public void setGalerias(Set<GaleriaModel> galerias) {
+		this.galerias = galerias;
+	}
+
+	
 }

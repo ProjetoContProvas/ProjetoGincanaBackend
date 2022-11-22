@@ -1,32 +1,24 @@
 package br.edu.ifba.BackGincana.model;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-@Entity
 @Table(name = "tb_usuario_evento")
 public class Usuario_EventoModel {
+
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_Usuario")
 	private UsuarioModel id_Usuario;
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_Gincana")
 	private UsuarioModel id_Gincana;
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_Evento")
 	private EventoModel id_Evento;
