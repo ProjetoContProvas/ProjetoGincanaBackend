@@ -22,18 +22,18 @@ public class ImagemModel {
 	private String URL_Imagem;
 	
 	@ManyToOne
-	@JoinColumn(name = "id_galeria", nullable = false)
-	private GaleriaModel id_galeria;
+	@JoinColumn(name = "id_galeria")
+	private GaleriaModel galeria;
 
 	public ImagemModel() {
 		super();
 	}
 
-	public ImagemModel(Integer id_Imagem, String uRL_Imagem, GaleriaModel id_galeria) {
+	public ImagemModel(Integer id_Imagem, String uRL_Imagem, GaleriaModel galeria) {
 		super();
 		this.id_Imagem = id_Imagem;
 		URL_Imagem = uRL_Imagem;
-		this.id_galeria = id_galeria;
+		this.galeria = galeria;
 	}
 
 	public Integer getId_Imagem() {
@@ -52,15 +52,13 @@ public class ImagemModel {
 		URL_Imagem = uRL_Imagem;
 	}
 
-	public GaleriaModel getId_galeria() {
-		return id_galeria;
+	public GaleriaModel getGaleria() {
+		return galeria;
 	}
 
-	public void setId_galeria(GaleriaModel id_galeria) {
-		this.id_galeria = id_galeria;
+	public void setGaleria(GaleriaModel galeria) {
+		this.galeria = galeria;
 	}
-	
-	
 
 	
 
