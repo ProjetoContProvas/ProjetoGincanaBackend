@@ -23,26 +23,16 @@ public class StatusModel {
 	@Column(name = "situacao_Status", length = 12, nullable = false)
 	private String situacao_Status;
 
-	@OneToMany(mappedBy = "statusModel")
-	private Set<GincanaModel> gincana = new HashSet<GincanaModel>();
+	
 
-	public StatusModel(Integer id_status, String situacao_Status, Set<GincanaModel> gincana) {
+	public StatusModel(Integer id_status, String situacao_Status) {
 		super();
 		this.id_status = id_status;
 		this.situacao_Status = situacao_Status;
-		this.gincana = gincana;
 	}
 
 	public StatusModel() {
 		super();
-	}
-
-	public Set<GincanaModel> getGincana() {
-		return gincana;
-	}
-
-	public void setGincana(Set<GincanaModel> gincana) {
-		this.gincana = gincana;
 	}
 
 	public Integer getId_status() {
