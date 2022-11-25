@@ -1,10 +1,14 @@
 package br.edu.ifba.BackGincana.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -19,13 +23,13 @@ public class PerfilModel {
 	@Column(name = "cargo_Perfil", length = 15, nullable = false)
 	private String cargo_Perfil;
 
-	
-	
+	@OneToMany(mappedBy = "perfil")
+	private Set<UsuarioModel> usuarios = new HashSet<UsuarioModel>();
+
 	public PerfilModel() {
 		super();
 	}
 
-	
 	public PerfilModel(Integer id_perfil, String cargo_Perfil) {
 		super();
 		this.id_perfil = id_perfil;

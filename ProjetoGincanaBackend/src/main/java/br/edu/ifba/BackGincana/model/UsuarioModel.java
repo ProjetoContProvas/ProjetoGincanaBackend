@@ -1,6 +1,8 @@
 package br.edu.ifba.BackGincana.model;
 
 import java.sql.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,20 +10,21 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "tb_usuario")
 public class UsuarioModel {
-	
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_usuario", nullable = true)
 	private Integer id_Usuario;
-	
-	@Column(name = "nome_Usuario", length = 60,  nullable = false)
+
+	@Column(name = "nome_Usuario", length = 60, nullable = false)
 	private String nome_Usuario;
 
 	@Column(name = "email_Usuario", length = 60, nullable = false)
@@ -32,25 +35,31 @@ public class UsuarioModel {
 
 	@Column(name = "sexo_Usuario", length = 9, nullable = false)
 	private String sexo_Usuario;
-	
+
 	@Column(name = "data_cadastro_Usuario", nullable = false)
 	private Date data_cadastro_Usuario;
 
 	@ManyToOne
 	@JoinColumn(name = "id_Gincana", nullable = false)
-	private GincanaModel id_Gincana;
-	
+	private GincanaModel gincana;
+
 	@ManyToOne
 	@JoinColumn(name = "id_Perfil", nullable = false)
-	private PerfilModel id_Perfil;
-	
+	private PerfilModel perfil;
+
+	@OneToOne(mappedBy = "usuario")
+	private EquipeModel equipe;
+
+	@ManyToMany(mappedBy = "usuarios")
+	private Set<EventoModel> eventos = new HashSet<EventoModel>();
 
 	public UsuarioModel() {
 		super();
 	}
 
 	public UsuarioModel(Integer id_Usuario, String nome_Usuario, String email_Usuario, String senha_Usuario,
-			String sexo_Usuario, Date data_cadastro_Usuario, GincanaModel id_Gincana, PerfilModel id_Perfil) {
+			String sexo_Usuario, Date data_cadastro_Usuario, GincanaModel gincana, PerfilModel perfil,
+			Set<EventoModel> eventos) {
 		super();
 		this.id_Usuario = id_Usuario;
 		this.nome_Usuario = nome_Usuario;
@@ -58,16 +67,16 @@ public class UsuarioModel {
 		this.senha_Usuario = senha_Usuario;
 		this.sexo_Usuario = sexo_Usuario;
 		this.data_cadastro_Usuario = data_cadastro_Usuario;
-		this.id_Gincana = id_Gincana;
-		this.id_Perfil = id_Perfil;
-
+		this.gincana = gincana;
+		this.perfil = perfil;
+		this.eventos = eventos;
 	}
 
-	public int getId_Usuario() {
+	public Integer getId_Usuario() {
 		return id_Usuario;
 	}
 
-	public void setId_Usuario(int id_Usuario) {
+	public void setId_Usuario(Integer id_Usuario) {
 		this.id_Usuario = id_Usuario;
 	}
 
@@ -111,23 +120,44 @@ public class UsuarioModel {
 		this.data_cadastro_Usuario = data_cadastro_Usuario;
 	}
 
-	public GincanaModel getId_Gincana() {
-		return id_Gincana;
+	public GincanaModel getGincana() {
+		return gincana;
 	}
 
-	public void setId_Gincana(GincanaModel id_Gincana) {
-		this.id_Gincana = id_Gincana;
+	public void setGincana(GincanaModel gincana) {
+		this.gincana = gincana;
 	}
 
-	public PerfilModel getId_Perfil() {
-		return id_Perfil;
+	public PerfilModel getPerfil() {
+		return perfil;
 	}
 
-	public void setId_Perfil(PerfilModel id_Perfil) {
-		this.id_Perfil = id_Perfil;
+	public void setPerfil(PerfilModel perfil) {
+		this.perfil = perfil;
 	}
 
-	
-	
+	public EquipeModel getEquipe() {
+		return equipe;
+	}
+
+	public void setEquipe(EquipeModel equipe) {
+		this.equipe = equipe;
+	}
+
+	public Set<EventoModel> getEventos() {
+		return eventos;
+	}
+
+	public void setEventos(Set<EventoModel> eventos) {
+		this.eventos = eventos;
+	}
+
+	@Override
+	public String toString() {
+		return "UsuarioModel [id_Usuario=" + id_Usuario + ", nome_Usuario=" + nome_Usuario + ", email_Usuario="
+				+ email_Usuario + ", senha_Usuario=" + senha_Usuario + ", sexo_Usuario=" + sexo_Usuario
+				+ ", data_cadastro_Usuario=" + data_cadastro_Usuario + ", gincana=" + gincana + ", perfil=" + perfil
+				+ ", equipe=" + equipe + ", eventos=" + eventos + "]";
+	}
 
 }

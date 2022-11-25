@@ -1,6 +1,8 @@
 package br.edu.ifba.BackGincana.model;
 
 import java.sql.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,7 +10,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -43,21 +48,29 @@ public class EventoModel {
 	
 	@ManyToOne
 	@JoinColumn(name = "id_gincana",  nullable = false)
-	private GincanaModel id_gincana;
+	private GincanaModel gincana;
 	
 	@ManyToOne
 	@JoinColumn(name = "id_status",  nullable = false)
-	private StatusModel id_status;
-
+	private StatusModel status;
+	
+	@OneToMany(mappedBy="evento")
+	private Set<CriterioModel> criterios = new HashSet<CriterioModel>();
+	
+	
+	@ManyToMany
+	@JoinTable(name = "tb_notas_criterio",
+	     joinColumns = @JoinColumn(name = "id_Evento"),
+			inverseJoinColumns =   @JoinColumn(name = "id_Usuario"))
+	private Set<UsuarioModel> usuarios = new HashSet<UsuarioModel>();
 
 	public EventoModel() {
 		super();
 	}
 
-
 	public EventoModel(Integer id_Evento, String nome_Evento, String descricao_Evento, String tipo_Evento,
-			Date data_Evento, String horario_Evento, String local_Evento, GincanaModel id_gincana,
-			StatusModel id_status) {
+			Date data_Evento, String horario_Evento, String local_Evento, GincanaModel gincana, StatusModel status,
+			Set<UsuarioModel> usuarios) {
 		super();
 		this.id_Evento = id_Evento;
 		this.nome_Evento = nome_Evento;
@@ -66,100 +79,103 @@ public class EventoModel {
 		this.data_Evento = data_Evento;
 		this.horario_Evento = horario_Evento;
 		this.local_Evento = local_Evento;
-		this.id_gincana = id_gincana;
-		this.id_status = id_status;
+		this.gincana = gincana;
+		this.status = status;
+		this.usuarios = usuarios;
 	}
-
 
 	public Integer getId_Evento() {
 		return id_Evento;
 	}
 
-
 	public void setId_Evento(Integer id_Evento) {
 		this.id_Evento = id_Evento;
 	}
-
 
 	public String getNome_Evento() {
 		return nome_Evento;
 	}
 
-
 	public void setNome_Evento(String nome_Evento) {
 		this.nome_Evento = nome_Evento;
 	}
-
 
 	public String getDescricao_Evento() {
 		return descricao_Evento;
 	}
 
-
 	public void setDescricao_Evento(String descricao_Evento) {
 		this.descricao_Evento = descricao_Evento;
 	}
-
 
 	public String getTipo_Evento() {
 		return tipo_Evento;
 	}
 
-
 	public void setTipo_Evento(String tipo_Evento) {
 		this.tipo_Evento = tipo_Evento;
 	}
-
 
 	public Date getData_Evento() {
 		return data_Evento;
 	}
 
-
 	public void setData_Evento(Date data_Evento) {
 		this.data_Evento = data_Evento;
 	}
-
 
 	public String getHorario_Evento() {
 		return horario_Evento;
 	}
 
-
 	public void setHorario_Evento(String horario_Evento) {
 		this.horario_Evento = horario_Evento;
 	}
-
 
 	public String getLocal_Evento() {
 		return local_Evento;
 	}
 
-
 	public void setLocal_Evento(String local_Evento) {
 		this.local_Evento = local_Evento;
 	}
 
+	public GincanaModel getGincana() {
+		return gincana;
+	}
 
-	public GincanaModel getId_gincana() {
-		return id_gincana;
+	public void setGincana(GincanaModel gincana) {
+		this.gincana = gincana;
+	}
+
+	public StatusModel getStatus() {
+		return status;
+	}
+
+	public void setStatus(StatusModel status) {
+		this.status = status;
+	}
+
+	public Set<UsuarioModel> getUsuarios() {
+		return usuarios;
+	}
+
+	public void setUsuarios(Set<UsuarioModel> usuarios) {
+		this.usuarios = usuarios;
+	}
+
+	@Override
+	public String toString() {
+		return "EventoModel [id_Evento=" + id_Evento + ", nome_Evento=" + nome_Evento + ", descricao_Evento="
+				+ descricao_Evento + ", tipo_Evento=" + tipo_Evento + ", data_Evento=" + data_Evento
+				+ ", horario_Evento=" + horario_Evento + ", local_Evento=" + local_Evento + ", gincana=" + gincana
+				+ ", status=" + status + ", criterios=" + criterios + ", usuarios=" + usuarios + "]";
 	}
 
 
-	public void setId_gincana(GincanaModel id_gincana) {
-		this.id_gincana = id_gincana;
-	}
 
 
-	public StatusModel getId_status() {
-		return id_status;
-	}
-
-
-	public void setId_status(StatusModel id_status) {
-		this.id_status = id_status;
-	}
-
+	
 	
 
 }

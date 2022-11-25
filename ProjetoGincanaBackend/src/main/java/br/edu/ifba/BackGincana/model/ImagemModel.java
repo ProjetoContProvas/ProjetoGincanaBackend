@@ -22,18 +22,17 @@ public class ImagemModel {
 	private String URL_Imagem;
 	
 	@ManyToOne
-	@JoinColumn(name = "id_galeria")
+	@JoinColumn(name = "id_Galeria")
 	private GaleriaModel galeria;
 
 	public ImagemModel() {
 		super();
 	}
 
-	public ImagemModel(Integer id_Imagem, String uRL_Imagem, GaleriaModel galeria) {
+	public ImagemModel(Integer id_Imagem, String uRL_Imagem) {
 		super();
 		this.id_Imagem = id_Imagem;
 		URL_Imagem = uRL_Imagem;
-		this.galeria = galeria;
 	}
 
 	public Integer getId_Imagem() {
@@ -51,15 +50,16 @@ public class ImagemModel {
 	public void setURL_Imagem(String uRL_Imagem) {
 		URL_Imagem = uRL_Imagem;
 	}
+	
 
-	public GaleriaModel getGaleria() {
-		return galeria;
+	@Override
+	public String toString() {
+		return "ImagemModel [id_Imagem=" + id_Imagem + ", URL_Imagem=" + URL_Imagem + ", galeria=" + galeria + "]";
 	}
 
-	public void setGaleria(GaleriaModel galeria) {
-		this.galeria = galeria;
-	}
-
+	
+	
+	
 	
 
 }

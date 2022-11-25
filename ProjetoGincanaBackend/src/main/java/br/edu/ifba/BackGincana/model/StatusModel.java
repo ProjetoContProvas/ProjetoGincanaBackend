@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+
 @Entity
 @Table(name = "tb_status")
 public class StatusModel {
@@ -22,17 +23,22 @@ public class StatusModel {
 
 	@Column(name = "situacao_Status", length = 12, nullable = false)
 	private String situacao_Status;
-
 	
+	@OneToMany(mappedBy="status")
+	private Set<GincanaModel> tarefas = new HashSet<GincanaModel>();
+
+	@OneToMany(mappedBy="status")
+	private Set<EventoModel> eventos = new HashSet<EventoModel>();
+	
+	
+	public StatusModel() {
+		super();
+	}
 
 	public StatusModel(Integer id_status, String situacao_Status) {
 		super();
 		this.id_status = id_status;
 		this.situacao_Status = situacao_Status;
-	}
-
-	public StatusModel() {
-		super();
 	}
 
 	public Integer getId_status() {
@@ -49,6 +55,11 @@ public class StatusModel {
 
 	public void setSituacao_Status(String situacao_Status) {
 		this.situacao_Status = situacao_Status;
+	}
+
+	@Override
+	public String toString() {
+		return "StatusModel [id_status=" + id_status + ", situacao_Status=" + situacao_Status + "]";
 	}
 
 }
