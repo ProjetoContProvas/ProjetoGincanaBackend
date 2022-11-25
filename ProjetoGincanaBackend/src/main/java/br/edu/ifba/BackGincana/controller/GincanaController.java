@@ -91,8 +91,8 @@ public class GincanaController {
 				gincana.setData_inicio_Gincana(gincanaModel.getData_inicio_Gincana());
 			if (gincanaModel.getData_fim_Gincana() != null)
 				gincana.setData_fim_Gincana(gincanaModel.getData_fim_Gincana());
-			if (gincanaModel.getStatusModel() != null)
-				gincana.setStatusModel(gincanaModel.getStatusModel());
+			if (gincanaModel.getStatus() != null)
+				gincana.setStatus(gincana.getStatus());
 
 			repository.save(gincana);
 			return ResponseEntity.ok(gincana);

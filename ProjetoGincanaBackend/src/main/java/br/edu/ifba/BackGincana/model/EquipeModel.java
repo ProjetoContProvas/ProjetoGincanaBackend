@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -22,29 +23,29 @@ public class EquipeModel {
 	private String nome_Equipe;
 
 	@ManyToOne
-	@JoinColumn(name = "id_gincana", nullable = false)
-	private GincanaModel id_gincana;
+	@JoinColumn(name = "id_Gincana", nullable = false)
+	private GincanaModel gincana;
 
 	@ManyToOne
-	@JoinColumn(name = "id_curso", nullable = false)
-	private CursoModel id_curso;
+	@JoinColumn(name = "id_Curso", nullable = false)
+	private CursoModel curso;
 
-	@ManyToOne
-	@JoinColumn(name = "id_usuario", nullable = false)
-	private UsuarioModel id_usuario;
-
+	@OneToOne
+	@JoinColumn(name = "id_Usuario", nullable = false)
+	private UsuarioModel usuario;
+	
 	public EquipeModel() {
 		super();
 	}
 
-	public EquipeModel(Integer id_equipe, String nome_Equipe, GincanaModel id_gincana, CursoModel id_curso,
-			UsuarioModel id_usuario) {
+	public EquipeModel(Integer id_equipe, String nome_Equipe, GincanaModel gincana, CursoModel curso,
+			UsuarioModel usuario) {
 		super();
 		this.id_equipe = id_equipe;
 		this.nome_Equipe = nome_Equipe;
-		this.id_gincana = id_gincana;
-		this.id_curso = id_curso;
-		this.id_usuario = id_usuario;
+		this.gincana = gincana;
+		this.curso = curso;
+		this.usuario = usuario;
 	}
 
 	public Integer getId_equipe() {
@@ -63,28 +64,38 @@ public class EquipeModel {
 		this.nome_Equipe = nome_Equipe;
 	}
 
-	public GincanaModel getId_gincana() {
-		return id_gincana;
+	public GincanaModel getGincana() {
+		return gincana;
 	}
 
-	public void setId_gincana(GincanaModel id_gincana) {
-		this.id_gincana = id_gincana;
+	public void setGincana(GincanaModel gincana) {
+		this.gincana = gincana;
 	}
 
-	public CursoModel getId_curso() {
-		return id_curso;
+	public CursoModel getCurso() {
+		return curso;
 	}
 
-	public void setId_curso(CursoModel id_curso) {
-		this.id_curso = id_curso;
+	public void setCurso(CursoModel curso) {
+		this.curso = curso;
 	}
 
-	public UsuarioModel getId_usuario() {
-		return id_usuario;
+	public UsuarioModel getUsuario() {
+		return usuario;
 	}
 
-	public void setId_usuario(UsuarioModel id_usuario) {
-		this.id_usuario = id_usuario;
+	public void setUsuario(UsuarioModel usuario) {
+		this.usuario = usuario;
 	}
 
+	@Override
+	public String toString() {
+		return "EquipeModel [id_equipe=" + id_equipe + ", nome_Equipe=" + nome_Equipe + ", gincana=" + gincana
+				+ ", curso=" + curso + ", usuario=" + usuario + "]";
+	}
+
+	
+	
+
+	
 }

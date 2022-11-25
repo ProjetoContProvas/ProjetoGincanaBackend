@@ -29,20 +29,20 @@ public class CriterioModel {
 	
 	@ManyToOne
 	@JoinColumn(name = "id_Evento", nullable = false)
-	private EventoModel id_Evento;
+	private EventoModel evento;
 
 	public CriterioModel() {
 		super();
 	}
 
-	public CriterioModel(Integer id_criterio, String nome_Criterio, int pontuacao_min_Criterio, int pontuacao_max_Criterio,
-			EventoModel id_Evento) {
+	public CriterioModel(Integer id_criterio, String nome_Criterio, int pontuacao_min_Criterio,
+			int pontuacao_max_Criterio, EventoModel evento) {
 		super();
 		this.id_criterio = id_criterio;
 		this.nome_Criterio = nome_Criterio;
 		this.pontuacao_min_Criterio = pontuacao_min_Criterio;
 		this.pontuacao_max_Criterio = pontuacao_max_Criterio;
-		this.id_Evento = id_Evento;
+		this.evento = evento;
 	}
 
 	public Integer getId_criterio() {
@@ -77,13 +77,22 @@ public class CriterioModel {
 		this.pontuacao_max_Criterio = pontuacao_max_Criterio;
 	}
 
-	public EventoModel getId_Evento() {
-		return id_Evento;
+	public EventoModel getEvento() {
+		return evento;
 	}
 
-	public void setId_Evento(EventoModel id_Evento) {
-		this.id_Evento = id_Evento;
+	public void setEvento(EventoModel evento) {
+		this.evento = evento;
 	}
+
+	@Override
+	public String toString() {
+		return "CriterioModel [id_criterio=" + id_criterio + ", nome_Criterio=" + nome_Criterio
+				+ ", pontuacao_min_Criterio=" + pontuacao_min_Criterio + ", pontuacao_max_Criterio="
+				+ pontuacao_max_Criterio + ", evento=" + evento + "]";
+	}
+
+	
 	
 	
 

@@ -1,10 +1,14 @@
 package br.edu.ifba.BackGincana.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -22,7 +26,12 @@ public class CursoModel {
 	
 	@Column(name = "modalidade_Curso", length = 12, nullable = false)
 	private String modalidade_Curso;
+	
 
+	@OneToMany(mappedBy="curso")
+	private Set<EquipeModel> equipes = new HashSet<EquipeModel>();
+	
+	
 	public CursoModel() {
 		super();
 	}
