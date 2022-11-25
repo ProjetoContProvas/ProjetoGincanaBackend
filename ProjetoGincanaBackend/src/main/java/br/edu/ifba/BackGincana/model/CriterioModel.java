@@ -12,21 +12,21 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "tb_criterio")
 public class CriterioModel {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_criterio", nullable = false)
 	private Integer id_criterio;
-	
+
 	@Column(name = "nome_Criterio", length = 30, nullable = false)
 	private String nome_Criterio;
-	
+
 	@Column(name = "pontuacao_min_Criterio", nullable = false)
 	private int pontuacao_min_Criterio;
-	
+
 	@Column(name = "pontuacao_max_Criterio", nullable = false)
 	private int pontuacao_max_Criterio;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "id_Evento", nullable = false)
 	private EventoModel evento;
@@ -91,9 +91,5 @@ public class CriterioModel {
 				+ ", pontuacao_min_Criterio=" + pontuacao_min_Criterio + ", pontuacao_max_Criterio="
 				+ pontuacao_max_Criterio + ", evento=" + evento + "]";
 	}
-
-	
-	
-	
 
 }

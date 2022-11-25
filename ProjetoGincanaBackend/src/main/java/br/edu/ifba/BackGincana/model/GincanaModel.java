@@ -36,27 +36,21 @@ public class GincanaModel {
 	private Date data_fim_Gincana;
 
 	@ManyToOne
-	@JoinColumn(name = "id_status")
+	@JoinColumn(name = "id_Status")
 	private StatusModel status;
 
 	@OneToMany(mappedBy = "gincana")
 	private Set<GaleriaModel> galerias = new HashSet<GaleriaModel>();
-	
+
 	@OneToMany(mappedBy = "gincana")
 	private Set<UsuarioModel> usuarios = new HashSet<UsuarioModel>();
-	
+
 	@OneToMany(mappedBy = "gincana")
 	private Set<EventoModel> eventos = new HashSet<EventoModel>();
-	
-	
-	
-	
 
 	public GincanaModel() {
 		super();
 	}
-
-	
 
 	public GincanaModel(Integer id_Gincana, String nome_Gincana, String descricao_Gincana, Date data_inicio_Gincana,
 			Date data_fim_Gincana, StatusModel status, Set<GaleriaModel> galerias) {
@@ -69,8 +63,6 @@ public class GincanaModel {
 		this.status = status;
 		this.galerias = galerias;
 	}
-
-
 
 	public Integer getId_Gincana() {
 		return id_Gincana;
@@ -119,8 +111,6 @@ public class GincanaModel {
 	public void setStatus(StatusModel status) {
 		this.status = status;
 	}
-	
-	
 
 	@Override
 	public String toString() {
@@ -128,6 +118,5 @@ public class GincanaModel {
 				+ descricao_Gincana + ", data_inicio_Gincana=" + data_inicio_Gincana + ", data_fim_Gincana="
 				+ data_fim_Gincana + ", status=" + status + ", galerias=" + galerias + "]";
 	}
-
 
 }

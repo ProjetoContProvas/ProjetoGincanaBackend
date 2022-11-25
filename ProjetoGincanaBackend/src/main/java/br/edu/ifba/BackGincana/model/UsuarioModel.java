@@ -1,7 +1,6 @@
 package br.edu.ifba.BackGincana.model;
 
 import java.sql.Date;
-import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -10,7 +9,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -49,10 +47,10 @@ public class UsuarioModel {
 
 	@OneToOne(mappedBy = "usuario")
 	private EquipeModel equipe;
-
+/*
 	@ManyToMany(mappedBy = "usuarios")
 	private Set<EventoModel> eventos = new HashSet<EventoModel>();
-
+*/
 	public UsuarioModel() {
 		super();
 	}
@@ -69,7 +67,7 @@ public class UsuarioModel {
 		this.data_cadastro_Usuario = data_cadastro_Usuario;
 		this.gincana = gincana;
 		this.perfil = perfil;
-		this.eventos = eventos;
+//		this.eventos = eventos;
 	}
 
 	public Integer getId_Usuario() {
@@ -136,14 +134,8 @@ public class UsuarioModel {
 		this.perfil = perfil;
 	}
 
-	public EquipeModel getEquipe() {
-		return equipe;
-	}
-
-	public void setEquipe(EquipeModel equipe) {
-		this.equipe = equipe;
-	}
-
+	
+/*
 	public Set<EventoModel> getEventos() {
 		return eventos;
 	}
@@ -151,13 +143,13 @@ public class UsuarioModel {
 	public void setEventos(Set<EventoModel> eventos) {
 		this.eventos = eventos;
 	}
-
+*/
 	@Override
 	public String toString() {
 		return "UsuarioModel [id_Usuario=" + id_Usuario + ", nome_Usuario=" + nome_Usuario + ", email_Usuario="
 				+ email_Usuario + ", senha_Usuario=" + senha_Usuario + ", sexo_Usuario=" + sexo_Usuario
 				+ ", data_cadastro_Usuario=" + data_cadastro_Usuario + ", gincana=" + gincana + ", perfil=" + perfil
-				+ ", equipe=" + equipe + ", eventos=" + eventos + "]";
+				+ ", equipe=" + equipe + "]";
 	}
 
 }

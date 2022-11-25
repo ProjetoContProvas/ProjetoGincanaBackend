@@ -11,13 +11,13 @@ import javax.persistence.Table;
 @Table(name = "tb_notas_criterio")
 public class Notas_CriterioModel {
 	@Id
-	@Column(name = "nota_Criterio",nullable = false)
+	@Column(name = "nota_Criterio", nullable = false)
 	private Integer nota_Criterio;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "id_criterio", nullable = false)
 	private CriterioModel id_criterio;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "id_Equipe", nullable = false)
 	private EquipeModel id_Equipe;
@@ -56,7 +56,5 @@ public class Notas_CriterioModel {
 	public void setId_Equipe(EquipeModel id_Equipe) {
 		this.id_Equipe = id_Equipe;
 	}
-	
-	
 
 }

@@ -26,14 +26,14 @@ public class EquipeModel {
 	@JoinColumn(name = "id_Gincana", nullable = false)
 	private GincanaModel gincana;
 
-	@ManyToOne
+	@OneToOne
 	@JoinColumn(name = "id_Curso", nullable = false)
 	private CursoModel curso;
 
 	@OneToOne
 	@JoinColumn(name = "id_Usuario", nullable = false)
 	private UsuarioModel usuario;
-	
+
 	public EquipeModel() {
 		super();
 	}
@@ -94,8 +94,4 @@ public class EquipeModel {
 				+ ", curso=" + curso + ", usuario=" + usuario + "]";
 	}
 
-	
-	
-
-	
 }

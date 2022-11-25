@@ -18,7 +18,7 @@ public class StatusModel {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_status", nullable = false)
+	@Column(name = "id_Status", nullable = false)
 	private Integer id_status;
 
 	@Column(name = "situacao_Status", length = 12, nullable = false)
@@ -27,7 +27,7 @@ public class StatusModel {
 	@OneToMany(mappedBy="status")
 	private Set<GincanaModel> tarefas = new HashSet<GincanaModel>();
 
-	@OneToMany(mappedBy="status")
+	@OneToMany(mappedBy = "status")
 	private Set<EventoModel> eventos = new HashSet<EventoModel>();
 	
 	
@@ -35,31 +35,39 @@ public class StatusModel {
 		super();
 	}
 
+
 	public StatusModel(Integer id_status, String situacao_Status) {
 		super();
 		this.id_status = id_status;
 		this.situacao_Status = situacao_Status;
 	}
 
+
 	public Integer getId_status() {
 		return id_status;
 	}
+
 
 	public void setId_status(Integer id_status) {
 		this.id_status = id_status;
 	}
 
+
 	public String getSituacao_Status() {
 		return situacao_Status;
 	}
+
 
 	public void setSituacao_Status(String situacao_Status) {
 		this.situacao_Status = situacao_Status;
 	}
 
+
 	@Override
 	public String toString() {
 		return "StatusModel [id_status=" + id_status + ", situacao_Status=" + situacao_Status + "]";
 	}
+
+	
 
 }

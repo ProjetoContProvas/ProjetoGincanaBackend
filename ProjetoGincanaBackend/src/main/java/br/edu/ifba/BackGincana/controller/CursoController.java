@@ -20,7 +20,7 @@ import br.edu.ifba.BackGincana.model.CursoModel;
 import br.edu.ifba.BackGincana.repository.CursoRepository;
 
 @RestController
-@RequestMapping("/curso")
+@RequestMapping(value = "/curso")
 public class CursoController {
 
 	@Autowired

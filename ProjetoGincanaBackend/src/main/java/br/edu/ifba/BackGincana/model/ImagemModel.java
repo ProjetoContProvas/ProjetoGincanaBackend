@@ -12,7 +12,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "tb_imagem")
 public class ImagemModel {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_Imagem", nullable = false)
@@ -20,7 +20,7 @@ public class ImagemModel {
 
 	@Column(name = "URL_Imagem", length = 400, nullable = false)
 	private String URL_Imagem;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "id_Galeria")
 	private GaleriaModel galeria;
@@ -50,16 +50,10 @@ public class ImagemModel {
 	public void setURL_Imagem(String uRL_Imagem) {
 		URL_Imagem = uRL_Imagem;
 	}
-	
 
 	@Override
 	public String toString() {
 		return "ImagemModel [id_Imagem=" + id_Imagem + ", URL_Imagem=" + URL_Imagem + ", galeria=" + galeria + "]";
 	}
-
-	
-	
-	
-	
 
 }
