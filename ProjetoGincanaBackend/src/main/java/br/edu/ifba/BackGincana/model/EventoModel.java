@@ -34,7 +34,7 @@ public class EventoModel {
 	@Column(name = "descricao_Evento", length = 200, nullable = false)
 	private String descricao_Evento;
 
-	@Column(name = "tipo_Evento", length = 15,  nullable = false)
+	@Column(name = "tipo_Evento", length = 15, nullable = false)
 	private String tipo_Evento;
 
 	@Column(name = "data_Evento", nullable = false)
@@ -45,32 +45,28 @@ public class EventoModel {
 
 	@Column(name = "local_Evento", length = 20, nullable = false)
 	private String local_Evento;
-	
+
 	@ManyToOne
-	@JoinColumn(name = "id_gincana",  nullable = false)
+	@JoinColumn(name = "id_gincana", nullable = false)
 	private GincanaModel gincana;
-	
+
 	@ManyToOne
-	@JoinColumn(name = "id_status",  nullable = false)
+	@JoinColumn(name = "id_status", nullable = false)
 	private StatusModel status;
-	
-	@OneToMany(mappedBy="evento")
+
+	@OneToMany(mappedBy = "evento")
 	private Set<CriterioModel> criterios = new HashSet<CriterioModel>();
-	
-	
+/*
 	@ManyToMany
-	@JoinTable(name = "tb_notas_criterio",
-	     joinColumns = @JoinColumn(name = "id_Evento"),
-			inverseJoinColumns =   @JoinColumn(name = "id_Usuario"))
-	private Set<UsuarioModel> usuarios = new HashSet<UsuarioModel>();
+	@JoinTable(name = "tb_notas_criterio", joinColumns = @JoinColumn(name = "id_Evento"), inverseJoinColumns = @JoinColumn(name = "id_Usuario"))
+	private Set<UsuarioModel> usuarios = new HashSet<UsuarioModel>(); */
 
 	public EventoModel() {
 		super();
 	}
 
 	public EventoModel(Integer id_Evento, String nome_Evento, String descricao_Evento, String tipo_Evento,
-			Date data_Evento, String horario_Evento, String local_Evento, GincanaModel gincana, StatusModel status,
-			Set<UsuarioModel> usuarios) {
+			Date data_Evento, String horario_Evento, String local_Evento, GincanaModel gincana, StatusModel status) {
 		super();
 		this.id_Evento = id_Evento;
 		this.nome_Evento = nome_Evento;
@@ -81,7 +77,7 @@ public class EventoModel {
 		this.local_Evento = local_Evento;
 		this.gincana = gincana;
 		this.status = status;
-		this.usuarios = usuarios;
+	//	this.usuarios = usuarios;
 	}
 
 	public Integer getId_Evento() {
@@ -156,26 +152,20 @@ public class EventoModel {
 		this.status = status;
 	}
 
-	public Set<UsuarioModel> getUsuarios() {
+/*	public Set<UsuarioModel> getUsuarios() {
 		return usuarios;
 	}
 
 	public void setUsuarios(Set<UsuarioModel> usuarios) {
 		this.usuarios = usuarios;
-	}
+	} */
 
 	@Override
 	public String toString() {
 		return "EventoModel [id_Evento=" + id_Evento + ", nome_Evento=" + nome_Evento + ", descricao_Evento="
 				+ descricao_Evento + ", tipo_Evento=" + tipo_Evento + ", data_Evento=" + data_Evento
 				+ ", horario_Evento=" + horario_Evento + ", local_Evento=" + local_Evento + ", gincana=" + gincana
-				+ ", status=" + status + ", criterios=" + criterios + ", usuarios=" + usuarios + "]";
+				+ ", status=" + status + ", criterios=" + criterios + "]";
 	}
-
-
-
-
-	
-	
 
 }
