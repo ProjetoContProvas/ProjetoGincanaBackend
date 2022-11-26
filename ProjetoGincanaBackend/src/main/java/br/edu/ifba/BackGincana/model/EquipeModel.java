@@ -16,8 +16,8 @@ public class EquipeModel {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_equipe", nullable = false)
-	private Integer id_equipe;
+	@Column(name = "id_Equipe", nullable = false)
+	private Integer id_Equipe;
 
 	@Column(name = "nome_equipe", length = 20, nullable = false)
 	private String nome_Equipe;
@@ -38,22 +38,22 @@ public class EquipeModel {
 		super();
 	}
 
-	public EquipeModel(Integer id_equipe, String nome_Equipe, GincanaModel gincana, CursoModel curso,
+	public EquipeModel(Integer id_Equipe, String nome_Equipe, GincanaModel gincana, CursoModel curso,
 			UsuarioModel usuario) {
 		super();
-		this.id_equipe = id_equipe;
+		this.id_Equipe = id_Equipe;
 		this.nome_Equipe = nome_Equipe;
 		this.gincana = gincana;
 		this.curso = curso;
 		this.usuario = usuario;
 	}
 
-	public Integer getId_equipe() {
-		return id_equipe;
+	public Integer getId_Equipe() {
+		return id_Equipe;
 	}
 
-	public void setId_equipe(Integer id_equipe) {
-		this.id_equipe = id_equipe;
+	public void setId_equipe(Integer id_Equipe) {
+		this.id_Equipe = id_Equipe;
 	}
 
 	public String getNome_Equipe() {
@@ -90,7 +90,7 @@ public class EquipeModel {
 
 	@Override
 	public String toString() {
-		return "EquipeModel [id_equipe=" + id_equipe + ", nome_Equipe=" + nome_Equipe + ", gincana=" + gincana
+		return "EquipeModel [id_equipe=" + id_Equipe + ", nome_Equipe=" + nome_Equipe + ", gincana=" + gincana
 				+ ", curso=" + curso + ", usuario=" + usuario + "]";
 	}
 

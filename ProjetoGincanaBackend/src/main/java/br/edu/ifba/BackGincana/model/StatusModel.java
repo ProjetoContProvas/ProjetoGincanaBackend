@@ -19,7 +19,7 @@ public class StatusModel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_Status", nullable = false)
-	private Integer id_status;
+	private Integer id_Status;
 
 	@Column(name = "situacao_Status", length = 12, nullable = false)
 	private String situacao_Status;
@@ -36,20 +36,20 @@ public class StatusModel {
 	}
 
 
-	public StatusModel(Integer id_status, String situacao_Status) {
+	public StatusModel(Integer id_Status, String situacao_Status) {
 		super();
-		this.id_status = id_status;
+		this.id_Status = id_Status;
 		this.situacao_Status = situacao_Status;
 	}
 
 
-	public Integer getId_status() {
-		return id_status;
+	public Integer getId_Status() {
+		return id_Status;
 	}
 
 
-	public void setId_status(Integer id_status) {
-		this.id_status = id_status;
+	public void setId_status(Integer id_Status) {
+		this.id_Status = id_Status;
 	}
 
 
@@ -65,7 +65,7 @@ public class StatusModel {
 
 	@Override
 	public String toString() {
-		return "StatusModel [id_status=" + id_status + ", situacao_Status=" + situacao_Status + "]";
+		return "StatusModel [id_status=" + id_Status + ", situacao_Status=" + situacao_Status + "]";
 	}
 
 	

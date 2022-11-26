@@ -15,8 +15,8 @@ public class CriterioModel {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_criterio", nullable = false)
-	private Integer id_criterio;
+	@Column(name = "id_Criterio", nullable = false)
+	private Integer id_Criterio;
 
 	@Column(name = "nome_Criterio", length = 30, nullable = false)
 	private String nome_Criterio;
@@ -35,22 +35,22 @@ public class CriterioModel {
 		super();
 	}
 
-	public CriterioModel(Integer id_criterio, String nome_Criterio, int pontuacao_min_Criterio,
+	public CriterioModel(Integer id_Criterio, String nome_Criterio, int pontuacao_min_Criterio,
 			int pontuacao_max_Criterio, EventoModel evento) {
 		super();
-		this.id_criterio = id_criterio;
+		this.id_Criterio = id_Criterio;
 		this.nome_Criterio = nome_Criterio;
 		this.pontuacao_min_Criterio = pontuacao_min_Criterio;
 		this.pontuacao_max_Criterio = pontuacao_max_Criterio;
 		this.evento = evento;
 	}
 
-	public Integer getId_criterio() {
-		return id_criterio;
+	public Integer getId_Criterio() {
+		return id_Criterio;
 	}
 
-	public void setId_criterio(Integer id_criterio) {
-		this.id_criterio = id_criterio;
+	public void setId_Criterio(Integer id_Criterio) {
+		this.id_Criterio = id_Criterio;
 	}
 
 	public String getNome_Criterio() {
@@ -87,7 +87,7 @@ public class CriterioModel {
 
 	@Override
 	public String toString() {
-		return "CriterioModel [id_criterio=" + id_criterio + ", nome_Criterio=" + nome_Criterio
+		return "CriterioModel [id_criterio=" + id_Criterio + ", nome_Criterio=" + nome_Criterio
 				+ ", pontuacao_min_Criterio=" + pontuacao_min_Criterio + ", pontuacao_max_Criterio="
 				+ pontuacao_max_Criterio + ", evento=" + evento + "]";
 	}
