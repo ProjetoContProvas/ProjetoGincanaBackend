@@ -56,11 +56,11 @@ public class EventoModel {
 
 	@OneToMany(mappedBy = "evento")
 	private Set<CriterioModel> criterios = new HashSet<CriterioModel>();
-/*
-	@ManyToMany
-	@JoinTable(name = "tb_notas_criterio", joinColumns = @JoinColumn(name = "id_Evento"), inverseJoinColumns = @JoinColumn(name = "id_Usuario"))
-	private Set<UsuarioModel> usuarios = new HashSet<UsuarioModel>(); */
 
+	//@ManyToMany
+	//@JoinTable(name = "tb_notas_criterio", joinColumns = {@JoinColumn(name = "id_Evento")}, inverseJoinColumns = {@JoinColumn(name = "id_Usuario")})
+	//private Set<UsuarioModel> usuarios = new HashSet<UsuarioModel>();
+ 
 	public EventoModel() {
 		super();
 	}
@@ -151,21 +151,22 @@ public class EventoModel {
 	public void setStatus(StatusModel status) {
 		this.status = status;
 	}
-
-/*	public Set<UsuarioModel> getUsuarios() {
+/*
+	public Set<UsuarioModel> getUsuarios() {
 		return usuarios;
 	}
 
 	public void setUsuarios(Set<UsuarioModel> usuarios) {
 		this.usuarios = usuarios;
-	} */
-
+	}
+*/
 	@Override
 	public String toString() {
 		return "EventoModel [id_Evento=" + id_Evento + ", nome_Evento=" + nome_Evento + ", descricao_Evento="
 				+ descricao_Evento + ", tipo_Evento=" + tipo_Evento + ", data_Evento=" + data_Evento
 				+ ", horario_Evento=" + horario_Evento + ", local_Evento=" + local_Evento + ", gincana=" + gincana
-				+ ", status=" + status + ", criterios=" + criterios + "]";
-	}
+				+ ", status=" + status + ", criterios=" + criterios  + "]";
+	} 
+	
 
 }

@@ -51,6 +51,15 @@ public class ImagemModel {
 		URL_Imagem = uRL_Imagem;
 	}
 
+	
+	public GaleriaModel getGaleria() {
+		return galeria;
+	}
+
+	public void setGaleria(GaleriaModel galeria) {
+		this.galeria = galeria;
+	}
+
 	@Override
 	public String toString() {
 		return "ImagemModel [id_Imagem=" + id_Imagem + ", URL_Imagem=" + URL_Imagem + ", galeria=" + galeria + "]";
