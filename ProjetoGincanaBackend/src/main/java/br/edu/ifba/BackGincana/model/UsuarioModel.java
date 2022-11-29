@@ -1,6 +1,7 @@
 package br.edu.ifba.BackGincana.model;
 
 import java.sql.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -9,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -19,7 +21,7 @@ public class UsuarioModel {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_usuario", nullable = true)
+	@Column(name = "id_Usuario", nullable = true)
 	private Integer id_Usuario;
 
 	@Column(name = "nome_Usuario", length = 60, nullable = false)
@@ -47,10 +49,10 @@ public class UsuarioModel {
 
 	@OneToOne(mappedBy = "usuario")
 	private EquipeModel equipe;
-/*
-	@ManyToMany(mappedBy = "usuarios")
-	private Set<EventoModel> eventos = new HashSet<EventoModel>();
-*/
+
+	//@ManyToMany(mappedBy = "usuarios")
+	//private Set<EventoModel> eventos = new HashSet<EventoModel>();
+
 	public UsuarioModel() {
 		super();
 	}
@@ -67,7 +69,7 @@ public class UsuarioModel {
 		this.data_cadastro_Usuario = data_cadastro_Usuario;
 		this.gincana = gincana;
 		this.perfil = perfil;
-//		this.eventos = eventos;
+	//	this.eventos = eventos;
 	}
 
 	public Integer getId_Usuario() {
@@ -151,5 +153,7 @@ public class UsuarioModel {
 				+ ", data_cadastro_Usuario=" + data_cadastro_Usuario + ", gincana=" + gincana + ", perfil=" + perfil
 				+ ", equipe=" + equipe + "]";
 	}
+
+	
 
 }

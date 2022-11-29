@@ -5,5 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import br.edu.ifba.BackGincana.model.ImagemModel;
 
 public interface ImagemRepository extends JpaRepository<ImagemModel, Integer>{
+	
+	
 
 }
