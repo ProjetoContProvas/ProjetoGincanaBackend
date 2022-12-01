@@ -27,11 +27,11 @@ public class EquipeModel {
 	private GincanaModel gincana;
 
 	@OneToOne
-	@JoinColumn(name = "id_Curso", nullable = false)
+	@JoinColumn(name = "id_Curso")
 	private CursoModel curso;
-
+	
 	@OneToOne
-	@JoinColumn(name = "id_Usuario", nullable = false)
+	@JoinColumn(name = "id_Usuario")
 	private UsuarioModel usuario;
 
 	public EquipeModel() {
@@ -52,7 +52,7 @@ public class EquipeModel {
 		return id_Equipe;
 	}
 
-	public void setId_equipe(Integer id_Equipe) {
+	public void setId_Equipe(Integer id_Equipe) {
 		this.id_Equipe = id_Equipe;
 	}
 
@@ -90,8 +90,10 @@ public class EquipeModel {
 
 	@Override
 	public String toString() {
-		return "EquipeModel [id_equipe=" + id_Equipe + ", nome_Equipe=" + nome_Equipe + ", gincana=" + gincana
+		return "EquipeModel [id_Equipe=" + id_Equipe + ", nome_Equipe=" + nome_Equipe + ", gincana=" + gincana
 				+ ", curso=" + curso + ", usuario=" + usuario + "]";
 	}
+
+	
 
 }

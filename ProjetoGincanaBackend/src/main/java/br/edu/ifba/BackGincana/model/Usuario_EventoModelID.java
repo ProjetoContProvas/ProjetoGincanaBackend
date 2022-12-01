@@ -1,10 +1,12 @@
 package br.edu.ifba.BackGincana.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Embeddable;
 
 @Embeddable
-public class Usuario_EventoModelID {
-	
+public class Usuario_EventoModelID implements Serializable {
+
 	private Integer id_Evento;
 	
 	private Integer id_Usuario;

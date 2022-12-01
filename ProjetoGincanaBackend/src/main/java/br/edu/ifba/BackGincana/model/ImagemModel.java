@@ -51,14 +51,14 @@ public class ImagemModel {
 		URL_Imagem = uRL_Imagem;
 	}
 
-	
+	/*
 	public GaleriaModel getGaleria() {
 		return galeria;
 	}
 
 	public void setGaleria(GaleriaModel galeria) {
 		this.galeria = galeria;
-	}
+	}*/
 
 	@Override
 	public String toString() {
