@@ -47,19 +47,16 @@ public class UsuarioModel {
 	@JoinColumn(name = "id_Perfil", nullable = false)
 	private PerfilModel perfil;
 
-	@OneToOne(mappedBy = "usuario")
-	private EquipeModel equipe;
-
-	//@ManyToMany(mappedBy = "usuarios")
-	//private Set<EventoModel> eventos = new HashSet<EventoModel>();
 
 	public UsuarioModel() {
 		super();
 	}
 
+	
+
 	public UsuarioModel(Integer id_Usuario, String nome_Usuario, String email_Usuario, String senha_Usuario,
-			String sexo_Usuario, Date data_cadastro_Usuario, GincanaModel gincana, PerfilModel perfil,
-			Set<EventoModel> eventos) {
+			String sexo_Usuario, Date data_cadastro_Usuario, GincanaModel gincana, PerfilModel perfil
+			) {
 		super();
 		this.id_Usuario = id_Usuario;
 		this.nome_Usuario = nome_Usuario;
@@ -69,8 +66,10 @@ public class UsuarioModel {
 		this.data_cadastro_Usuario = data_cadastro_Usuario;
 		this.gincana = gincana;
 		this.perfil = perfil;
-	//	this.eventos = eventos;
+		
 	}
+
+
 
 	public Integer getId_Usuario() {
 		return id_Usuario;
@@ -136,24 +135,13 @@ public class UsuarioModel {
 		this.perfil = perfil;
 	}
 
-	
-/*
-	public Set<EventoModel> getEventos() {
-		return eventos;
-	}
 
-	public void setEventos(Set<EventoModel> eventos) {
-		this.eventos = eventos;
-	}
-*/
 	@Override
 	public String toString() {
 		return "UsuarioModel [id_Usuario=" + id_Usuario + ", nome_Usuario=" + nome_Usuario + ", email_Usuario="
 				+ email_Usuario + ", senha_Usuario=" + senha_Usuario + ", sexo_Usuario=" + sexo_Usuario
 				+ ", data_cadastro_Usuario=" + data_cadastro_Usuario + ", gincana=" + gincana + ", perfil=" + perfil
-				+ ", equipe=" + equipe + "]";
+				+ "]";
 	}
-
-	
 
 }
