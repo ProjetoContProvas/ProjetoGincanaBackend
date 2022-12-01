@@ -9,7 +9,7 @@ import javax.persistence.ManyToOne;
 @Entity
 @IdClass(Usuario_EventoModelID.class)
 public class Usuarios_EventosModel {
-	
+
 
 	@Id
 	@ManyToOne
