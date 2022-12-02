@@ -46,6 +46,8 @@ public class UsuarioModel {
 	@ManyToOne
 	@JoinColumn(name = "id_Perfil", nullable = false)
 	private PerfilModel perfil;
+	
+	
 
 
 	public UsuarioModel() {
