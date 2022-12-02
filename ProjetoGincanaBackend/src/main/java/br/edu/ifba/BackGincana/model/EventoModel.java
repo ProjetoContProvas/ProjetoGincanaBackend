@@ -16,6 +16,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Data;
 
 @Data
@@ -57,16 +59,13 @@ public class EventoModel {
 	@OneToMany(mappedBy = "evento")
 	private Set<CriterioModel> criterios = new HashSet<CriterioModel>();
 
-	//@ManyToMany
-	//@JoinTable(name = "tb_notas_criterio", joinColumns = {@JoinColumn(name = "id_Evento")}, inverseJoinColumns = {@JoinColumn(name = "id_Usuario")})
-	//private Set<UsuarioModel> usuarios = new HashSet<UsuarioModel>();
- 
 	public EventoModel() {
 		super();
 	}
 
 	public EventoModel(Integer id_Evento, String nome_Evento, String descricao_Evento, String tipo_Evento,
-			Date data_Evento, String horario_Evento, String local_Evento, GincanaModel gincana, StatusModel status) {
+			Date data_Evento, String horario_Evento, String local_Evento, GincanaModel gincana, StatusModel status,
+			Set<CriterioModel> criterios) {
 		super();
 		this.id_Evento = id_Evento;
 		this.nome_Evento = nome_Evento;
@@ -77,7 +76,7 @@ public class EventoModel {
 		this.local_Evento = local_Evento;
 		this.gincana = gincana;
 		this.status = status;
-	//	this.usuarios = usuarios;
+		this.criterios = criterios;
 	}
 
 	public Integer getId_Evento() {
@@ -152,21 +151,20 @@ public class EventoModel {
 		this.status = status;
 	}
 /*
-	public Set<UsuarioModel> getUsuarios() {
-		return usuarios;
+	public Set<CriterioModel> getCriterios() {
+		return criterios;
 	}
 
-	public void setUsuarios(Set<UsuarioModel> usuarios) {
-		this.usuarios = usuarios;
-	}
-*/
+	public void setCriterios(Set<CriterioModel> criterios) {
+		this.criterios = criterios;
+	}*/
+
 	@Override
 	public String toString() {
 		return "EventoModel [id_Evento=" + id_Evento + ", nome_Evento=" + nome_Evento + ", descricao_Evento="
 				+ descricao_Evento + ", tipo_Evento=" + tipo_Evento + ", data_Evento=" + data_Evento
 				+ ", horario_Evento=" + horario_Evento + ", local_Evento=" + local_Evento + ", gincana=" + gincana
-				+ ", status=" + status + ", criterios=" + criterios  + "]";
-	} 
-	
+				+ ", status=" + status + ", criterios=" + criterios + "]";
+	}
 
 }
