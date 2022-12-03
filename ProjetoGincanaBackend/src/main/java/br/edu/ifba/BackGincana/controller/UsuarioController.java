@@ -39,9 +39,17 @@ public class UsuarioController {
 	}
 
 	@PostMapping
-	public UsuarioModel insert(@RequestBody UsuarioModel usuario) {
-		UsuarioModel result = repository.save(usuario);
-		return result;
+	public boolean insert(@RequestBody UsuarioModel usuario) {
+		
+		try {
+			repository.save(usuario);
+			System.out.println("server - insert: TRUE");
+			return true;
+		} catch (Exception e) {
+			System.out.println("server - insert: FALSE");
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 	@DeleteMapping("/{id}")

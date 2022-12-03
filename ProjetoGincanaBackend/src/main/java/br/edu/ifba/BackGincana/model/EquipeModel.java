@@ -19,8 +19,11 @@ public class EquipeModel {
 	@Column(name = "id_Equipe", nullable = false)
 	private Integer id_Equipe;
 
-	@Column(name = "nome_equipe", length = 20, nullable = false)
+	@Column(name = "nome_Equipe", length = 20, nullable = false)
 	private String nome_Equipe;
+
+	@Column(name = "descricao_Equipe", length = 300, nullable = false)
+	private String descricao_Equipe;
 
 	@ManyToOne
 	@JoinColumn(name = "id_Gincana", nullable = false)
@@ -29,7 +32,7 @@ public class EquipeModel {
 	@OneToOne
 	@JoinColumn(name = "id_Curso")
 	private CursoModel curso;
-	
+
 	@OneToOne
 	@JoinColumn(name = "id_Usuario")
 	private UsuarioModel usuario;
@@ -38,11 +41,12 @@ public class EquipeModel {
 		super();
 	}
 
-	public EquipeModel(Integer id_Equipe, String nome_Equipe, GincanaModel gincana, CursoModel curso,
-			UsuarioModel usuario) {
+	public EquipeModel(Integer id_Equipe, String nome_Equipe, String descricao_Equipe, GincanaModel gincana,
+			CursoModel curso, UsuarioModel usuario) {
 		super();
 		this.id_Equipe = id_Equipe;
 		this.nome_Equipe = nome_Equipe;
+		this.descricao_Equipe = descricao_Equipe;
 		this.gincana = gincana;
 		this.curso = curso;
 		this.usuario = usuario;
@@ -62,6 +66,14 @@ public class EquipeModel {
 
 	public void setNome_Equipe(String nome_Equipe) {
 		this.nome_Equipe = nome_Equipe;
+	}
+
+	public String getDescricao_Equipe() {
+		return descricao_Equipe;
+	}
+
+	public void setDescricao_Equipe(String descricao_Equipe) {
+		this.descricao_Equipe = descricao_Equipe;
 	}
 
 	public GincanaModel getGincana() {
@@ -90,10 +102,8 @@ public class EquipeModel {
 
 	@Override
 	public String toString() {
-		return "EquipeModel [id_Equipe=" + id_Equipe + ", nome_Equipe=" + nome_Equipe + ", gincana=" + gincana
-				+ ", curso=" + curso + ", usuario=" + usuario + "]";
+		return "EquipeModel [id_Equipe=" + id_Equipe + ", nome_Equipe=" + nome_Equipe + ", descricao_Equipe="
+				+ descricao_Equipe + ", gincana=" + gincana + ", curso=" + curso + ", usuario=" + usuario + "]";
 	}
-
-	
 
 }
