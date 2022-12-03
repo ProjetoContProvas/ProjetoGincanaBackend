@@ -27,5 +27,8 @@ public class Nota_CriterioController {
 		List<Nota_CriterioModel> result = nota_CriterioRepository.findAll();
 		return result;
 	}
-
+	
+	
+	
+	
 }
