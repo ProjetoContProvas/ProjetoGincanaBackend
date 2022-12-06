@@ -81,6 +81,14 @@ public class EquipeController {
 			var equipe = p.get();
 			if (equipeModel.getNome_Equipe() != null)
 				equipe.setNome_Equipe(equipeModel.getNome_Equipe());
+			if (equipeModel.getDescricao_Equipe() != null)
+				equipe.setDescricao_Equipe(equipeModel.getDescricao_Equipe());
+			if(equipeModel.getGincana() != null)
+				equipe.setGincana(equipeModel.getGincana());
+			if(equipeModel.getCurso() != null)
+				equipe.setCurso(equipeModel.getCurso());
+			if(equipeModel.getUsuario() != null)
+				equipe.setUsuario(equipeModel.getUsuario());
 			repository.save(equipe);
 			return ResponseEntity.ok(equipe);
 		} else {

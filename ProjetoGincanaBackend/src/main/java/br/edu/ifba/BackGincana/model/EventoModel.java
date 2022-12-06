@@ -64,8 +64,7 @@ public class EventoModel {
 	}
 
 	public EventoModel(Integer id_Evento, String nome_Evento, String descricao_Evento, String tipo_Evento,
-			Date data_Evento, String horario_Evento, String local_Evento, GincanaModel gincana, StatusModel status,
-			Set<CriterioModel> criterios) {
+			Date data_Evento, String horario_Evento, String local_Evento, GincanaModel gincana, StatusModel status) {
 		super();
 		this.id_Evento = id_Evento;
 		this.nome_Evento = nome_Evento;
@@ -76,7 +75,7 @@ public class EventoModel {
 		this.local_Evento = local_Evento;
 		this.gincana = gincana;
 		this.status = status;
-		this.criterios = criterios;
+		
 	}
 
 	public Integer getId_Evento() {
@@ -150,21 +149,14 @@ public class EventoModel {
 	public void setStatus(StatusModel status) {
 		this.status = status;
 	}
-/*
-	public Set<CriterioModel> getCriterios() {
-		return criterios;
-	}
 
-	public void setCriterios(Set<CriterioModel> criterios) {
-		this.criterios = criterios;
-	}*/
 
 	@Override
 	public String toString() {
 		return "EventoModel [id_Evento=" + id_Evento + ", nome_Evento=" + nome_Evento + ", descricao_Evento="
 				+ descricao_Evento + ", tipo_Evento=" + tipo_Evento + ", data_Evento=" + data_Evento
 				+ ", horario_Evento=" + horario_Evento + ", local_Evento=" + local_Evento + ", gincana=" + gincana
-				+ ", status=" + status + ", criterios=" + criterios + "]";
+				+ ", status=" + status + "]";
 	}
 
 }

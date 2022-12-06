@@ -25,7 +25,7 @@ public class StatusModel {
 	private String situacao_Status;
 	
 	@OneToMany(mappedBy="status")
-	private Set<GincanaModel> tarefas = new HashSet<GincanaModel>();
+	private Set<GincanaModel> gincanas = new HashSet<GincanaModel>();
 
 	@OneToMany(mappedBy = "status")
 	private Set<EventoModel> eventos = new HashSet<EventoModel>();

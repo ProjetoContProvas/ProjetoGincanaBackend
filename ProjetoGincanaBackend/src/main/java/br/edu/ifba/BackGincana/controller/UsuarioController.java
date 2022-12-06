@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.edu.ifba.BackGincana.model.UsuarioModel;
@@ -59,9 +61,10 @@ public class UsuarioController {
 	}
 
 	@PutMapping("/{id}")
+	@ResponseStatus(HttpStatus.CREATED)
 	public ResponseEntity<UsuarioModel> update(@PathVariable Integer id, @RequestBody UsuarioModel usuarioModel) {
 		var p = repository.findById(id);
-
+        System.out.println("00000000000000000000000000000000-------------------->"+ usuarioModel);
 		if (p.isPresent()) {
 			var usuario = p.get();
 
@@ -79,7 +82,13 @@ public class UsuarioController {
 
 			if (usuarioModel.getData_cadastro_Usuario() != null)
 				usuario.setData_cadastro_Usuario(usuarioModel.getData_cadastro_Usuario());
-
+			
+			if(usuario.getGincana() != null)
+				usuario.setGincana(usuarioModel.getGincana());
+			
+			if(usuario.getPerfil() != null)
+				usuario.setPerfil(usuarioModel.getPerfil());
+			
 			repository.save(usuario);
 			return ResponseEntity.ok(usuario);
 		} else {

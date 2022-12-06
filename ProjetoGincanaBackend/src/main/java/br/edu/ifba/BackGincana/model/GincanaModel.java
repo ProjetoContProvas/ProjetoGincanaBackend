@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -39,7 +40,7 @@ public class GincanaModel {
 	@JoinColumn(name = "id_Status")
 	private StatusModel status;
 
-	@OneToMany(mappedBy = "gincana")
+	@OneToMany(mappedBy = "gincana", cascade = CascadeType.ALL)
 	private Set<GaleriaModel> galerias = new HashSet<GaleriaModel>();
 
 	@OneToMany(mappedBy = "gincana")

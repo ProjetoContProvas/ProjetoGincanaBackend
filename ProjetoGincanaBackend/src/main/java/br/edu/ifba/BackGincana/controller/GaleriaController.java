@@ -83,7 +83,8 @@ public class GaleriaController {
 				galeria.setNome_Galeria(galeriaModel.getNome_Galeria());
 			if (galeriaModel.getDescricao_Galeria() != null)
 				galeria.setDescricao_Galeria(galeriaModel.getDescricao_Galeria());
-
+			if(galeriaModel.getGincana() != null)
+				galeria.setGincana(galeriaModel.getGincana());
 			repository.save(galeria);
 			return ResponseEntity.ok(galeria);
 		} else {

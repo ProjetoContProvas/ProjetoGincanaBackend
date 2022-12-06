@@ -28,7 +28,7 @@ public class GaleriaModel {
 	@Column(name = "descricao_Galeria", length = 300, nullable = false)
 	private String descricao_Galeria;
 
-	@ManyToOne()
+	@ManyToOne
 	@JoinColumn(name = "id_Gincana")
 	private GincanaModel gincana;
 
