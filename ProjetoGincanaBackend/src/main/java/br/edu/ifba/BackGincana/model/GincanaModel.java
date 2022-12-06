@@ -53,7 +53,7 @@ public class GincanaModel {
 	}
 
 	public GincanaModel(Integer id_Gincana, String nome_Gincana, String descricao_Gincana, Date data_inicio_Gincana,
-			Date data_fim_Gincana, StatusModel status, Set<GaleriaModel> galerias) {
+			Date data_fim_Gincana, StatusModel status) {
 		super();
 		this.id_Gincana = id_Gincana;
 		this.nome_Gincana = nome_Gincana;
@@ -61,7 +61,7 @@ public class GincanaModel {
 		this.data_inicio_Gincana = data_inicio_Gincana;
 		this.data_fim_Gincana = data_fim_Gincana;
 		this.status = status;
-		this.galerias = galerias;
+		
 	}
 
 	public Integer getId_Gincana() {

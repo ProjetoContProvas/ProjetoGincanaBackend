@@ -78,14 +78,14 @@ public class GaleriaModel {
 	public void setGincana(GincanaModel gincana) {
 		this.gincana = gincana;
 	}
-
+    /*
 	public Set<ImagemModel> getImagens() {
 		return imagens;
 	}
 
 	public void setImagens(Set<ImagemModel> imagens) {
 		this.imagens = imagens;
-	}
+	}*/
 
 	@Override
 	public String toString() {
