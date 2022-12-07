@@ -83,7 +83,6 @@ public class CursoController {
 				curso.setNome_Curso(cursoModel.getNome_Curso());
 			if (cursoModel.getModalidade_Curso() != null)
 				curso.setModalidade_Curso(cursoModel.getModalidade_Curso());
-
 			repository.save(curso);
 			return ResponseEntity.ok(curso);
 		} else {

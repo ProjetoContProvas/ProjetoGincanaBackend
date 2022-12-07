@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.edu.ifba.BackGincana.model.UsuarioModel;
 import br.edu.ifba.BackGincana.model.Usuario_EventoModel;
+import br.edu.ifba.BackGincana.model.Usuario_EventoModelID;
 import br.edu.ifba.BackGincana.repository.Usuario_EventoRepository;
 
 @RestController
@@ -21,24 +22,19 @@ public class Usuario_EventoController {
 	private Usuario_EventoRepository usuario_EventoRepository;
 	
 	
-	
-	
-	@GetMapping("/teste")
-	public String teste(){
-		return "Testando Rota";
-	}
-	
 	@GetMapping("/listall")
 	public List<Usuario_EventoModel> listall() {
 		List<Usuario_EventoModel> result = usuario_EventoRepository.findAll();
 		return result;
 	}
 	
-	@GetMapping(value = "/{id}")
-	public Usuario_EventoModel findById(@PathVariable Integer id) {
+	@GetMapping("/{id}")
+	public Usuario_EventoModel findById(@PathVariable Usuario_EventoModelID id) {
 		Optional<Usuario_EventoModel> obj = usuario_EventoRepository.findById(id);
 		if (obj.isPresent())
 			return obj.get();
 		return null;
 	}
+	
+	
 }
