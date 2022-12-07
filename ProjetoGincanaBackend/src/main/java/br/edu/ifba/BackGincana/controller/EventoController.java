@@ -81,14 +81,21 @@ public class EventoController {
 			var evento = p.get();
 			if (eventoModel.getNome_Evento() != null)
 				evento.setNome_Evento(eventoModel.getNome_Evento());
-			if (eventoModel.getLocal_Evento() != null)
-				evento.setLocal_Evento(eventoModel.getLocal_Evento());
+			if (eventoModel.getDescricao_Evento() != null)
+				evento.setDescricao_Evento(eventoModel.getDescricao_Evento());
+			if (eventoModel.getTipo_Evento() != null)
+				evento.setTipo_Evento(eventoModel.getTipo_Evento());
 			if (eventoModel.getData_Evento() != null)
 				evento.setData_Evento(eventoModel.getData_Evento());
 			if (eventoModel.getHorario_Evento() != null)
 				evento.setHorario_Evento(eventoModel.getHorario_Evento());
-			if (eventoModel.getDescricao_Evento() != null)
-				evento.setDescricao_Evento(eventoModel.getDescricao_Evento());
+			if (eventoModel.getLocal_Evento() != null)
+				evento.setLocal_Evento(eventoModel.getLocal_Evento());
+			if (eventoModel.getGincana() != null)
+				evento.setGincana(eventoModel.getGincana());
+			if (eventoModel.getStatus() != null)
+				evento.setStatus(eventoModel.getStatus());
+
 			repository.save(evento);
 			return ResponseEntity.ok(evento);
 		} else {

@@ -80,8 +80,9 @@ public class ImagemController {
 		if (p.isPresent()) {
 			var imagem = p.get();
 			if (imagemModel.getURL_Imagem() != null)
-				imagem.setURL_Imagem(imagemModel.getURL_Imagem());	
-			
+				imagem.setURL_Imagem(imagemModel.getURL_Imagem());
+			if (imagemModel.getGaleria() != null)
+				imagem.setGaleria(imagemModel.getGaleria());
 			repository.save(imagem);
 			return ResponseEntity.ok(imagem);
 		} else {

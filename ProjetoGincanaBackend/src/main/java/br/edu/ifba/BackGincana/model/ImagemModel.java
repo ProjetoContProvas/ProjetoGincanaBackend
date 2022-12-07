@@ -29,10 +29,11 @@ public class ImagemModel {
 		super();
 	}
 
-	public ImagemModel(Integer id_Imagem, String uRL_Imagem) {
+	public ImagemModel(Integer id_Imagem, String uRL_Imagem, GaleriaModel galeria) {
 		super();
 		this.id_Imagem = id_Imagem;
 		URL_Imagem = uRL_Imagem;
+		this.galeria = galeria;
 	}
 
 	public Integer getId_Imagem() {
@@ -51,7 +52,6 @@ public class ImagemModel {
 		URL_Imagem = uRL_Imagem;
 	}
 
-	
 	public GaleriaModel getGaleria() {
 		return galeria;
 	}

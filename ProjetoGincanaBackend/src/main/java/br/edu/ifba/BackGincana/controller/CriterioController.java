@@ -85,6 +85,8 @@ public class CriterioController {
 				criterio.setPontuacao_min_Criterio(criterioModel.getPontuacao_min_Criterio());
 			if (criterioModel.getPontuacao_max_Criterio() != 0)
 				criterio.setPontuacao_max_Criterio(criterioModel.getPontuacao_max_Criterio());
+			if(criterioModel.getEvento() != null)
+				criterio.setEvento(criterioModel.getEvento());
 			repository.save(criterio);
 			return ResponseEntity.ok(criterio);
 		} else {

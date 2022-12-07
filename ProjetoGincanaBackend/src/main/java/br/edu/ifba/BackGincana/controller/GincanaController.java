@@ -83,7 +83,6 @@ public class GincanaController {
 		var p = repository.findById(id);
 		System.out.println("000000000000000000000000------------------------->" + gincanaModel);
 		
-		var id_Status = gincanaModel.getStatus().getId_Status();
 		if (p.isPresent()) {
 			var gincana = p.get();
 			if (gincanaModel.getNome_Gincana() != null)
