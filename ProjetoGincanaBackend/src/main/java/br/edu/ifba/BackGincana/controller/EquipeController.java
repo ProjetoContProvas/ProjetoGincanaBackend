@@ -95,5 +95,22 @@ public class EquipeController {
 			return ResponseEntity.notFound().build();
 		}
 	}
+	
+	
+	/*
+	@GetMapping("/galeria/{id}")
+	public List<EquipeModel> buscarPorGaleria(@PathVariable("id") Integer id ) {
+		List<EquipeModel> list = this.repository.findAll();
+		
+		return list;
+	} */
+	
+	
+	
+	
+	
+	
+	
+	
 
 }
