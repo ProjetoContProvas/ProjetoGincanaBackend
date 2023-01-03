@@ -11,8 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-@Entity
-@Table(name = "tb_curso")
+@Entity /*   Esse Anotation indica que essa classe representa uma entidade, ou seja, uma tabela do banco de dados   */
+@Table(name = "tb_curso") /*   Configuração do nome da tabela !!! Deve ser Igual ao Banco de Dados !!!   */
 public class CursoModel {
 
 	@Id

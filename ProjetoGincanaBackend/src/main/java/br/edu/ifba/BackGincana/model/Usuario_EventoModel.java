@@ -7,12 +7,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import lombok.Data;
-
-@Entity
-@Data
+@Entity /*   Esse Anotation indica que essa classe representa uma entidade, ou seja, uma tabela do banco de dados   */
 @Table(name = "tb_usuario_evento")
-@IdClass(Usuario_EventoModelID.class)
+@IdClass(Usuario_EventoModelID.class)/*Toda tabela do banco de dados precisa de um identificador, esse anoation diz que 
+o identificador dessa tabela, é uma chave estrangeira de outras duas tabelas*/
 public class Usuario_EventoModel {
 
 

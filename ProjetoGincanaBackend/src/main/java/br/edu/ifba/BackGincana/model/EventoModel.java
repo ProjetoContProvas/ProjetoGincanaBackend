@@ -10,19 +10,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import lombok.Data;
-
-@Data
-@Entity
-@Table(name = "tb_evento")
+@Entity /*   Esse Anotation indica que essa classe representa uma entidade, ou seja, uma tabela do banco de dados   */
+@Table(name = "tb_evento") /*   Configuração do nome da tabela !!! Deve ser Igual ao Banco de Dados !!!   */
 public class EventoModel {
 
 	@Id

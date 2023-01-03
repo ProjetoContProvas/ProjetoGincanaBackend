@@ -9,8 +9,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-@Entity
-@Table(name = "tb_imagem")
+@Entity /*   Esse Anotation indica que essa classe representa uma entidade, ou seja, uma tabela do banco de dados   */
+@Table(name = "tb_imagem") /*   Configuração do nome da tabela !!! Deve ser Igual ao Banco de Dados !!!   */
 public class ImagemModel {
 
 	@Id
