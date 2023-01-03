@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 import javax.persistence.Embeddable;
 
-@Embeddable
+@Embeddable /*Esse anotation faz parte de uma configuração da tebela criterioModel, que usa identificadores primarios de outra duas tabelas*/
 public class Nota_CriterioModelID implements Serializable {
 
 	private Integer id_Criterio;

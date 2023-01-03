@@ -19,6 +19,24 @@ import org.springframework.web.bind.annotation.RestController;
 import br.edu.ifba.BackGincana.model.GincanaModel;
 import br.edu.ifba.BackGincana.repository.GincanaRepository;
 
+/*Essa é uma classe de Controller, é a classe resposavél pela criação de metodos, como o CRUD por exemplo.
+ * 
+ * @RestController --> permite definir um controller com características REST.
+ * @RequestMapping --> Com esse anotation configuramos a rota da classe. (ao colocarmos a rota no navegador será direcionado para essa classe e poderá ter acesso aos metodos .
+ * @Autowired --> Injeção automatica, com esse anotation, não precisamos ficar criando estagancias de outra classe dentro de cada mátodo
+ * @GetMapping --> indica que o método é um método de busca, ele retornará uma informação (Ex:.. retorna uma lista do banco de dados);
+ * @PostMapping --> indica que o metodo é um metodo de envio, (EX:.. envia um objeto para ser salvo no banco de dados)
+ * @ResponseStatus --> Apenas um anotation de tratamento de excepitons (erros). pode ser observado no Insomia.
+ * @PathVariable --> desserializa um 'id' passado pela URL. geralmente é usado em metodo DELETE e UPDATE; 
+ * @RequestBody --> Reliza uma conversão que permite que um objeto Json seja entendido pelo java e converte esse objeto para um tipo desejado!
+ * */
+
+
+
+
+
+
+
 @RestController
 @RequestMapping(value = "/gincana")
 public class GincanaController {
@@ -26,19 +44,21 @@ public class GincanaController {
 	@Autowired
 	private GincanaRepository repository;
 
+	//método que retorna todos os cadastros no banco de dados
 	@GetMapping("/listall")
 	public List<GincanaModel> findall() {
 		System.out.println("Entrou aqui");
 		return (List<GincanaModel>) repository.findAll();
 	}
 
+	//método para testar rota
 	@GetMapping("/teste")
 	public String teste() {
 		System.out.println("Entrou");
 		return "Testando Rota";
 	}
 
-	// Método que retornar o usuario associado ao ID passado como parametro
+	//método que retorna um cadastro expecifico do banco de dados de acordo com o ID
 	@GetMapping("/{id}")
 	public GincanaModel findById(@PathVariable("id") Integer id) {
 		System.out.println("entrou");
@@ -49,6 +69,7 @@ public class GincanaController {
 		return null;
 	}
 
+	// método que cadastra um objeto no banco de dados.
 	@PostMapping("/")
 	@ResponseStatus(HttpStatus.CREATED)
 	public boolean insert(@RequestBody GincanaModel model) {
@@ -65,6 +86,7 @@ public class GincanaController {
 		}
 	}
 
+	//método que deleta um cadastro do banco de dados de acordo com  ID
 	@DeleteMapping("/{id}")
 	@ResponseStatus(HttpStatus.ACCEPTED)
 	public boolean delete(@PathVariable("id") Integer id) {
@@ -77,6 +99,7 @@ public class GincanaController {
 		}
 	}
 
+	//método que modifica um cadastro existente no banco de dados.
 	@PutMapping("/{id}")
 	@ResponseStatus(HttpStatus.CREATED)
 	public ResponseEntity<GincanaModel> update(@PathVariable("id") Integer id, @RequestBody GincanaModel gincanaModel) {

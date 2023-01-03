@@ -8,9 +8,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-@Entity
-@Table(name = "tb_notas_criterio")
-@IdClass(Nota_CriterioModelID.class)
+@Entity /*   Esse Anotation indica que essa classe representa uma entidade, ou seja, uma tabela do banco de dados   */
+@Table(name = "tb_notas_criterio") /*   Configuração do nome da tabela !!! Deve ser Igual ao Banco de Dados !!!   */
+@IdClass(Nota_CriterioModelID.class) /*Toda tabela do banco de dados precisa de um identificador, esse anoation diz que 
+o identificador dessa tabela, é uma chave estrangeira de outras duas tabelas*/
 public class Nota_CriterioModel {
 
 	@Id

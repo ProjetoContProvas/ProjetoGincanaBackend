@@ -15,8 +15,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-@Entity
-@Table(name = "tb_gincana")
+@Entity /*   Esse Anotation indica que essa classe representa uma entidade, ou seja, uma tabela do banco de dados   */
+@Table(name = "tb_gincana") /*   Configuração do nome da tabela !!! Deve ser Igual ao Banco de Dados !!!   */
 public class GincanaModel {
 
 	@Id

@@ -9,13 +9,23 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-@Entity
+/*   @Entity --> Esse Anotation indica que essa classe representa uma entidade, ou seja, uma tabela do banco de daos   
+ *   @Table -->   Configuração do nome da tabela !!! Deve ser Igual ao Banco de Dados !!! 
+ *   @Id --> classifica o atributo abaixo como o identidicador da tabela
+ *   @GeneratedValue --> Gera ids sequênciais automaticamente ao inserirmos algo nessa tabela do banco
+ *   @Column --> Configuração de tupla (linha) da tabela
+ * */
+
+
+
+
+@Entity 
 @Table(name = "tb_criterio")
 public class CriterioModel {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_Criterio", nullable = false)
+	@Id 
+	@GeneratedValue(strategy = GenerationType.IDENTITY) 
+	@Column(name = "id_Criterio", nullable = false) 
 	private Integer id_Criterio;
 
 	@Column(name = "nome_Criterio", length = 30, nullable = false)
@@ -27,7 +37,7 @@ public class CriterioModel {
 	@Column(name = "pontuacao_max_Criterio", nullable = false)
 	private int pontuacao_max_Criterio;
 
-	@ManyToOne
+	@ManyToOne 
 	@JoinColumn(name = "id_Evento", nullable = false)
 	private EventoModel evento;
 
